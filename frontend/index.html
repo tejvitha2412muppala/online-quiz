@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <title>Quizly — Learn by doing</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Quizly home">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span>quizly<span class="brand-dot">.</span></span>
+      </a>
+
+      <div class="side-label">MENU</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span>Overview</button>
+        <button class="nav-item" data-view="quizzes"><span class="nav-icon">▤</span>Explore quizzes</button>
+        <button class="nav-item" data-view="results"><span class="nav-icon">◷</span>My results</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <div class="note-spark">✦</div>
+        <strong>Small steps,<br />big progress.</strong>
+        <p>Keep showing up. Your next breakthrough is one quiz away.</p>
+        <div class="note-progress"><span></span></div>
+        <small>3 of 5 weekly goals</small>
+      </div>
+
+      <div class="profile-mini">
+        <div class="avatar avatar-purple">JD</div>
+        <div><strong>Jordan Davis</strong><small>Student account</small></div>
+        <span class="profile-menu">•••</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">Learning space <span>/</span> <strong id="breadcrumbTitle">Overview</strong></div>
+        <div class="topbar-actions">
+          <div class="today-date" id="todayDate"></div>
+          <button class="icon-button notification-button" aria-label="Notifications"><span>♧</span><i></i></button>
+          <div class="avatar avatar-top">JD</div>
+        </div>
+      </header>
+
+      <section class="page-view active" id="dashboardView">
+        <div class="welcome-row">
+          <div>
+            <p class="eyebrow">MONDAY MOTIVATION <span>✦</span></p>
+            <h1>Good morning, Jordan <span class="wave">✋</span></h1>
+            <p class="subheading">Ready to make today count? Pick up where you left off.</p>
+          </div>
+          <button class="button button-primary" data-go="quizzes"><span>＋</span> Find a quiz</button>
+        </div>
+
+        <section class="hero-card" aria-label="Featured quiz">
+          <div class="hero-content">
+            <div class="hero-kicker"><span class="live-dot"></span> FEATURED THIS WEEK</div>
+            <h2>Challenge your<br />curiosity.</h2>
+            <p>Put your problem-solving skills to the test with our most-loved critical thinking quiz.</p>
+            <button class="button button-light" data-start="critical">Take the challenge <span>→</span></button>
+            <div class="hero-meta"><span>◷ 10 min</span><span>♧ 12 questions</span><span>★ 4.9</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+            <div class="art-sun"></div><div class="art-planet"></div>
+            <div class="art-card card-floating"><span class="tiny-check">✓</span><span>Think<br />different</span></div>
+            <div class="art-star star-one">✦</div><div class="art-star star-two">✧</div>
+            <div class="art-pill">✧&nbsp; LET'S LEARN</div>
+          </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Learning statistics">
+          <article class="stat-card"><div class="stat-icon purple-icon">▤</div><div><span>Quizzes completed</span><strong id="completedCount">0</strong><small class="stat-caption">Keep the momentum going</small></div><span class="stat-decoration">↗</span></article>
+          <article class="stat-card"><div class="stat-icon orange-icon">♧</div><div><span>Average score</span><strong id="averageScore">—<small>%</small></strong><small class="stat-caption">Across your attempts</small></div><span class="stat-decoration">✦</span></article>
+          <article class="stat-card"><div class="stat-icon mint-icon">♨</div><div><span>Learning streak</span><strong>4 <small>days</small></strong><small class="stat-caption">You're on a roll!</small></div><span class="stat-decoration">〰</span></article>
+        </section>
+
+        <div class="section-heading"><div><p class="eyebrow">YOUR NEXT STEP</p><h2>Pick up a new skill</h2></div><button class="text-link" data-go="quizzes">View all quizzes <span>→</span></button></div>
+        <section class="quiz-grid featured-grid" id="dashboardQuizGrid" aria-label="Recommended quizzes"></section>
+
+        <section class="bottom-grid">
+          <article class="panel progress-panel">
+            <div class="panel-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h3>Weekly progress</h3></div><span class="select-like">This week⌄</span></div>
+            <div class="chart-wrap"><div class="chart-y"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div><div class="chart-area"><div class="chart-lines"><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 600 150" preserveAspectRatio="none" role="img" aria-label="Weekly quiz activity is trending upward"><defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7562e9" stop-opacity=".24"/><stop offset="1" stop-color="#7562e9" stop-opacity="0"/></linearGradient></defs><path class="chart-fill" d="M0 118 C45 112 50 75 100 91 S165 119 200 77 S255 99 300 57 S350 76 400 50 S460 69 500 33 S560 45 600 18 L600 150 L0 150Z"/><path class="chart-line" d="M0 118 C45 112 50 75 100 91 S165 119 200 77 S255 99 300 57 S350 76 400 50 S460 69 500 33 S560 45 600 18"/></svg><div class="chart-x"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></div></div>
+          </article>
+          <article class="panel tip-panel"><div class="tip-top"><span class="tip-icon">✦</span><span class="eyebrow">A LITTLE REMINDER</span></div><h3>Progress over<br />perfection.</h3><p>Every quiz you take is a step forward. Review what you missed, celebrate what you know, and keep going.</p><div class="tip-footer"><span class="tip-avatar">Q</span><span>YOUR QUIZLY COACH</span><span class="tip-stars">✦ ✧</span></div></article>
+        </section>
+      </section>
+
+      <section class="page-view" id="quizzesView">
+        <div class="page-title-row"><div><p class="eyebrow">A WORLD OF KNOWLEDGE</p><h1>Explore quizzes</h1><p class="subheading">Find your next favorite way to learn.</p></div></div>
+        <div class="library-toolbar"><label class="search-box"><span>⌕</span><input id="quizSearch" type="search" placeholder="Search quizzes or topics..." aria-label="Search quizzes" /></label><div class="filter-chips" id="filterChips"><button class="filter-chip active" data-filter="All">All topics</button><button class="filter-chip" data-filter="Science">Science</button><button class="filter-chip" data-filter="Technology">Technology</button><button class="filter-chip" data-filter="Design">Design</button><button class="filter-chip" data-filter="Thinking">Thinking</button></div></div>
+        <div class="library-summary"><span id="quizCountLabel">All quizzes</span><span>Curated for curious minds <b>✦</b></span></div>
+        <section class="quiz-grid library-grid" id="libraryQuizGrid" aria-label="All quizzes"></section>
+        <div class="empty-state hidden" id="emptyQuizzes"><span>⌕</span><h3>No quizzes found</h3><p>Try another search or choose a different topic.</p></div>
+      </section>
+
+      <section class="page-view" id="resultsView">
+        <div class="page-title-row"><div><p class="eyebrow">LOOK HOW FAR YOU'VE COME</p><h1>My results</h1><p class="subheading">Your quiz history, all in one place.</p></div><button class="button button-secondary" data-go="quizzes">Explore quizzes <span>→</span></button></div>
+        <div class="result-summary" id="resultSummary"></div>
+        <div class="panel results-panel"><div class="results-table-head"><span>QUIZ</span><span>DATE COMPLETED</span><span>SCORE</span><span>RESULT</span></div><div id="resultsList"></div><div class="empty-state hidden" id="emptyResults"><span>◷</span><h3>Your story starts here</h3><p>Complete a quiz and your results will show up here.</p><button class="button button-primary" data-go="quizzes">Browse quizzes</button></div></div>
+      </section>
+
+      <footer class="footer"><span>© 2025 Quizly Learning</span><span>Made for curious minds <b>✦</b></span></footer>
+    </main>
+  </div>
+
+  <div class="quiz-overlay hidden" id="quizOverlay" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+    <div class="quiz-modal">
+      <div class="quiz-modal-top"><a class="brand modal-brand" href="#"><span class="brand-mark">Q</span><span>quizly<span class="brand-dot">.</span></span></a><button class="icon-button close-quiz" id="closeQuiz" aria-label="Close quiz">×</button></div>
+      <div id="quizContent"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
